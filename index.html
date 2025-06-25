@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix Card Hover Effect</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Video 1 -->
+        <div class="card">
+            <div class="media-wrapper">
+                <img src="images/1.png" alt="Image" class="media img">
+                <video src="videos/1.mp4" muted loop class="media video"></video>
+            </div>
+            <div class="details">
+                <div class="title-like">
+                    <span class="title">Video 1</span>
+                    <i class="fa fa-heart like-icon"></i>
+                </div>
+                <button class="play-btn"><i class="fa fa-play"></i> Play</button>
+            </div>
+        </div>
+        <!-- Video 2 -->
+        <div class="card">
+            <div class="media-wrapper">
+                <img src="images/2.png" alt="Image" class="media img">
+                <video src="videos/2.mp4" muted loop class="media video"></video>
+            </div>
+            <div class="details">
+                <div class="title-like">
+                    <span class="title">Video 1</span>
+                    <i class="fa fa-heart like-icon"></i>
+                </div>
+                <button class="play-btn"><i class="fa fa-play"></i> Play</button>
+            </div>
+        </div>
+        <!-- Video 3 -->
+        <div class="card">
+            <div class="media-wrapper">
+                <img src="images/3.png" alt="Image" class="media img">
+                <video src="videos/3.mp4" muted loop class="media video"></video>
+            </div>
+            <div class="details">
+                <div class="title-like">
+                    <span class="title">Video 1</span>
+                    <i class="fa fa-heart like-icon"></i>
+                </div>
+                <button class="play-btn"><i class="fa fa-play"></i> Play</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.querySelectorAll('.card').forEach(card=>{
+            const video = card.querySelector('video');
+            const image = card.querySelector('img');
+
+            card.addEventListener('mouseenter',()=>{
+                video.style.opacity = 1;
+                image.style.opacity = 0;
+                video.play();
+            })
+
+            card.addEventListener('mouseleave',()=>{
+                video.style.opacity = 0;
+                image.style.opacity = 1;
+                video.pause();
+            })
+        })
+
+        document.addEventListener('click',function(e){
+            if(e.target.classList.contains('like-icon')){
+                e.target.classList.toggle('liked')
+            }
+        })
+    </script>
+</body>
+</html>
